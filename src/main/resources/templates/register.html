@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sign up — FundHope</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+  <style>
+    .auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 16px 60px;background:linear-gradient(to bottom,#f7f9f3,#fff)}
+    .auth-card{width:min(440px,100%);background:#fff;border-radius:24px;border:1px solid var(--line);box-shadow:0 30px 60px rgba(60,80,10,.08);padding:40px 32px}
+    .auth-card h1{font-size:clamp(28px,4vw,38px);font-weight:400;letter-spacing:-.03em;margin-bottom:8px}
+    .auth-card p.sub{color:#4a4f3a;margin-bottom:24px}
+    .form-group{margin-bottom:18px}
+    label{display:block;font-size:13px;color:#2c3a10;margin-bottom:8px}
+    input{width:100%;height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);font:inherit;background:#fff}
+    .auth-card .btn{width:100%;height:42px;margin-top:8px}
+    .err{background:#fdecea;color:#b3261e;border:1px solid #f5c2c7;padding:10px 14px;border-radius:999px;margin-bottom:18px;font-size:14px}
+  </style>
+</head>
+<body>
+  <nav th:replace="~{fragments :: nav}"></nav>
+  <main class="auth-wrap">
+    <div class="auth-card">
+      <h1>Create your account</h1>
+      <p class="sub">Start a campaign or support causes you care about.</p>
+      <p class="err" th:if="${error}" th:text="${error}"></p>
+      <form method="post" action="/register">
+        <input type="hidden" name="next" th:value="${next}">
+        <div class="form-group">
+          <label>Name</label>
+          <input name="name" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input name="email" type="email" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input name="password" type="password" minlength="6" required>
+        </div>
+        <button class="btn">Sign up</button>
+      </form>
+      <p style="text-align:center;margin-top:18px;font-size:14px">Already have an account? <a href="/login">Log in</a></p>
+    </div>
+  </main>
+</body>
+</html>

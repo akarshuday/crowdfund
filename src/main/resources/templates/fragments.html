@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+  <nav th:fragment="nav" class="nav" style="position:fixed">
+    <a class="brand" href="/" aria-label="FundHope home">
+      <svg viewBox="0 0 30 22"><circle cx="4" cy="17" r="3.6" fill="currentColor"/><path d="M10.5 18.5 16.8 5.2 25.5 18.5" fill="none" stroke="currentColor" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>FundHope</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#campaigns">Campaigns</a>
+      <a href="/campaigns/new">Start a campaign</a>
+      <span th:if="${me}"><a class="nav-hi" href="/my-campaigns" th:text="'Hi, ' + ${me}">Hi</a><a href="/logout">Log out</a></span>
+      <span th:unless="${me}"><a href="/login">Log in</a><a class="btn" href="/register">Sign up</a></span>
+    </div>
+  </nav>
+</body>
+</html>

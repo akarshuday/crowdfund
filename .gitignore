@@ -1,0 +1,7 @@
+target/
+.vercel
+.idea/
+.vscode/
+*.iml
+.DS_Store
+application-local.properties

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FundHope — Fund what matters. Together.</title>
+  <meta name="description" content="Start a campaign for a personal need, a community cause or a new idea. Share it, collect support, and track every rupee as it comes in.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/petalyx.css">
+</head>
+<body class="intro">
+  <div class="backdrop"></div>
+  <div id="app">
+    <section class="hero" id="hero">
+      <nav class="nav">
+        <a class="brand" href="#hero" aria-label="FundHope home">
+          <svg viewBox="0 0 30 22"><circle cx="4" cy="17" r="3.6" fill="currentColor"/><path d="M10.5 18.5 16.8 5.2 25.5 18.5" fill="none" stroke="currentColor" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>FundHope</span>
+        </a>
+        <div class="nav-links">
+          <a href="/#campaigns">Campaigns</a>
+          <span th:if="${me}"><a class="nav-hi" href="/my-campaigns" th:text="'Hi, ' + ${me}">Hi</a><a href="/logout">Log out</a></span>
+          <span th:unless="${me}"><a href="/login">Log in</a></span>
+          <a class="btn" href="/campaigns/new">Start a campaign</a>
+        </div>
+      </nav>
+      
+      <div class="cloud cloud-l" data-par="-60">
+        <img class="drift-a" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261021_093216_44218665-b15e-4566-a2d4-2676ab03609d.png" alt="">
+      </div>
+      <div class="cloud cloud-r" data-par="-90">
+        <img class="drift-b" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261021_093215_0f37c0c3-f82c-485b-87dd-5a35b75a8782.png" alt="">
+      </div>
+      
+      <h1 id="heroTitle" class="split" style="top:24%;">Fund what matters.<br>Together.</h1>
+      <p style="position:absolute;z-index:6;top:48%;width:100%;text-align:center;padding:0 16px;font-size:clamp(16px,2vw,20px);color:#3a402b;letter-spacing:-.01em;" class="split">Start a campaign for a personal need, a community cause or a new idea. Share it, collect support, and track every rupee as it comes in.</p>
+      <div style="position:absolute;z-index:6;top:64%;width:100%;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:0 16px;">
+        <a class="btn" href="/campaigns/new">Start a campaign</a>
+        <a class="btn" href="/#campaigns" style="background:rgba(255,255,255,.9);color:var(--olive);box-shadow:inset 0 0 0 1px rgba(77,106,16,.2)">Browse campaigns</a>
+      </div>
+      
+      <div class="hero-media">
+        <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261021_093215_b7826239-e451-4e15-b42b-d6bcf9497a32.png" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261021_093331_5998f443-1b9c-4b62-820c-8219c73c72c4.mp4"></video>
+      </div>
+      <div class="hero-glass" id="heroGlass"></div>
+    </section>
+    
+    <section class="stats" id="stats">
+      <div class="sq-field" data-count="22"></div>
+      <div class="tree-wrap">
+        <img id="tree" class="tree" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261021_093215_95f11900-c4a0-49ad-bb2d-bb927dd594ee.png" alt="">
+      </div>
+      <div class="stats-inner">
+        <span class="pill reveal">How it works</span>
+        <h2 class="h2 split">Start in minutes,<br>make an impact.</h2>
+        <div class="cards" style="grid-template-columns:repeat(3,1fr);">
+          <div class="card" style="height:auto;min-height:150px;">
+            <span class="card-label">Step 1</span>
+            <div>
+              <b style="font-size:clamp(18px,2vw,24px);letter-spacing:-.02em;">Tell your story</b>
+              <p style="margin-top:8px;font-size:13px;color:#2a3410;line-height:1.5;">Add a title, your goal and an end date, and explain why it matters.</p>
+            </div>
+          </div>
+          <div class="card" style="height:auto;min-height:150px;">
+            <span class="card-label">Step 2</span>
+            <div>
+              <b style="font-size:clamp(18px,2vw,24px);letter-spacing:-.02em;">Share it</b>
+              <p style="margin-top:8px;font-size:13px;color:#2a3410;line-height:1.5;">Send your campaign page to friends, family and your community.</p>
+            </div>
+          </div>
+          <div class="card" style="height:auto;min-height:150px;">
+            <span class="card-label">Step 3</span>
+            <div>
+              <b style="font-size:clamp(18px,2vw,24px);letter-spacing:-.02em;">Receive support</b>
+              <p style="margin-top:8px;font-size:13px;color:#2a3410;line-height:1.5;">Supporters give securely, and you watch your progress bar fill.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cards-shadow"></div>
+      </div>
+    </section>
+    
+
+    <section class="impact" id="impact">
+      <div class="impact-row">
+        <div class="impact-card"><span class="card-label">Campaigns started</span><b th:attr="data-to=${campaignCount}" th:text="${campaignCount}">0</b></div>
+        <div class="impact-card"><span class="card-label">Raised so far</span><b data-pre="₹ " th:attr="data-to=${totalRaised}" th:text="'₹ ' + ${#numbers.formatDecimal(totalRaised,0,'COMMA',0,'POINT')}">₹ 0</b></div>
+        <div class="impact-card"><span class="card-label">Gifts received</span><b th:attr="data-to=${donorCount}" th:text="${donorCount}">0</b></div>
+      </div>
+    </section>
+    
+    <section id="campaigns" style="padding:80px 4vw 90px;background:#fff;">
+      <div style="max-width:1080px;margin:0 auto 28px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;">
+        <div>
+          <span class="pill">Active campaigns</span>
+          <h2 style="font-size:clamp(28px,4vw,42px);font-weight:400;letter-spacing:-.03em;margin-top:12px;">Support causes near you</h2>
+        </div>
+        <a class="btn" href="/campaigns/new">Start a campaign</a>
+      </div>
+      <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px;" th:if="${campaigns != null && !#lists.isEmpty(campaigns)}">
+        <a th:each="c : ${campaigns}" th:href="@{'/campaigns/' + ${c.id}}" style="background:#fff;border-radius:24px;border:1px solid var(--line);box-shadow:0 24px 50px rgba(60,80,10,.06);overflow:hidden;display:flex;flex-direction:column;min-height:320px;">
+          <div style="padding:26px;display:flex;flex-direction:column;gap:14px;flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="pill" style="padding:4px 10px;font-size:12px" th:text="${c.category}">Category</span>
+              <span style="color:#4a4f3a;font-size:14px">Ends <span th:text="${c.deadline}"></span></span>
+            </div>
+            <h3 style="font-size:clamp(20px,2.4vw,26px);font-weight:400;letter-spacing:-.02em;" th:text="${c.title}">Title</h3>
+            <p style="color:#4a4f3a;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;" th:text="${c.description}">Description</p>
+            <div style="height:8px;background:var(--line);border-radius:999px;overflow:hidden;"><i th:with="pct=${c.goalAmount > 0 ? T(java.lang.Math).floor(T(java.lang.Math).min(c.raisedAmount * 100.0 / c.goalAmount, 100.0)) : 0}" th:style="'display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--lime));width:' + ${pct} + '%'"></i></div>
+            <div style="display:flex;justify-content:space-between;font-size:14px;color:#4a4f3a;">
+              <span>₹ <strong th:text="${#numbers.formatDecimal(c.raisedAmount,0,'COMMA',0,'POINT')}">0</strong> raised</span>
+              <span>of ₹ <span th:text="${#numbers.formatDecimal(c.goalAmount,0,'COMMA',0,'POINT')}">0</span></span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div style="max-width:1080px;margin:0 auto;text-align:center;padding:40px;color:#4a4f3a;" th:if="${campaigns == null || #lists.isEmpty(campaigns)}">
+        <p>No campaigns yet. Be the first to start one.</p>
+        <a class="btn" href="/campaigns/new" style="margin-top:16px">Start a campaign</a>
+      </div>
+    </section>
+    
+    <section class="cta" id="cta">
+      <div class="sq-field" data-count="16"></div>
+      <div class="cta-img">
+        <img id="ctaImg" alt="Moonlit cherry blossom valley" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261021_093217_cc690198-ad8c-4127-8734-8485bd878351.png">
+      </div>
+      <div class="petals" id="petals"></div>
+      <div class="cta-card" id="ctaCard">
+        <span class="pill">Get started</span>
+        <h2 class="h2 split">Every cause deserves a chance.</h2>
+        <p class="reveal">Start a campaign for a personal need, a community cause or a new idea.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+          <a class="btn reveal" href="/campaigns/new">Start a campaign</a>
+          <a class="btn reveal" href="/#campaigns" style="background:rgba(255,255,255,.9);color:var(--olive);box-shadow:inset 0 0 0 1px rgba(77,106,16,.2)">Browse campaigns</a>
+        </div>
+      </div>
+    </section>
+    
+    <footer id="footer">
+      <svg class="f-logo" viewBox="0 0 80 80" aria-label="FundHope" overflow="visible">
+        <circle id="fRing" cx="40" cy="40" r="37" fill="none" stroke="#111" stroke-width="2.4" stroke-dasharray="233" stroke-dashoffset="233" transform="rotate(-90 40 40)"/>
+        <circle class="fdot" cx="22" cy="40" r="4.5" fill="#111"/>
+        <circle class="fdot" cx="40" cy="40" r="4.5" fill="#111"/>
+        <circle class="fdot" cx="58" cy="40" r="4.5" fill="#111"/>
+        <path id="fMark" d="M33 53 43 31 56 53" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60"/>
+      </svg>
+      <nav class="f-links">
+        <a href="/about">About</a>
+        <a href="#stats">How it works</a>
+        <a href="/campaigns/new">Start a campaign</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/refunds">Refund Policy</a>
+      </nav>
+      <div style="justify-self:end;text-align:right;">
+        <div style="font-size:13px;margin-bottom:6px;">Questions? Write to support@yourdomain.com</div>
+      </div>
+      <div class="f-copy" style="display:flex;flex-direction:column;gap:6px;">
+        <div>FundHope helps people raise money for the causes that matter to them.</div>
+        <div>Payments are processed securely by our payment partner. FundHope does not store your card details.</div>
+        <div>© 2026 FundHope. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="/js/petalyx.js"></script>
+</body>
+</html>

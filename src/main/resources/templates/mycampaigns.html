@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FundHope</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+  <style>.wrap{max-width:1000px;margin:0 auto;padding:130px 16px 70px}.row{display:flex;justify-content:space-between;gap:12px;padding:18px 22px;border:1px solid var(--line);border-radius:20px;margin-bottom:12px}h1{font-weight:400;letter-spacing:-.03em;margin-bottom:20px}</style>
+</head>
+<body>
+  <nav th:replace="~{fragments :: nav}"></nav>
+  <main class="wrap">
+    <h1>My campaigns</h1>
+    <p th:if="${#lists.isEmpty(list)}">You have not started a campaign yet. <a href="/campaigns/new"><u>Start your first one</u></a>.</p>
+    <a class="row" th:each="c : ${list}" th:href="@{'/campaigns/' + ${c.id}}">
+      <strong th:text="${c.title}">Title</strong>
+      <span>₹ <span th:text="${#numbers.formatDecimal(c.raisedAmount,0,'COMMA',0,'POINT')}">0</span> of ₹ <span th:text="${#numbers.formatDecimal(c.goalAmount,0,'COMMA',0,'POINT')}">0</span></span>
+    </a>
+  </main>
+</body>
+</html>
